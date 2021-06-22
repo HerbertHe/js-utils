@@ -68,4 +68,31 @@ function isDate(val) {
   return Object.prototype.toString.call(val) === "[object Date]";
 }
 
-export { isArray, isDate, isObject, isReference, isRegExp, isStatic };
+/**
+ * 简易版深拷贝, 不能用于含有function之类的
+ * @param obj
+ */
+function deepCloneSimple(obj) {
+  return JSON.parse(JSON.stringify(obj));
+}
+/**
+ * 深拷贝
+ * @param obj
+ */
+
+
+function deepClone(obj) {
+  if (_typeof(obj) !== "object") {
+    return obj;
+  }
+
+  var newObj = Array.isArray(obj) ? [] : {};
+
+  for (var key in obj) {
+    newObj[key] = _typeof(obj[key]) === "object" ? deepClone(obj[key]) : obj[key];
+  }
+
+  return newObj;
+}
+
+export { deepClone, deepCloneSimple, isArray, isDate, isObject, isReference, isRegExp, isStatic };

@@ -1,2 +1,2 @@
-declare const AA: () => void;
-export { AA };
+export * from "./data/index";
+export * from "./handler/index";

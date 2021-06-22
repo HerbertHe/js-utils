@@ -44,8 +44,13 @@
     "@rollup/plugin-babel": "^5.3.0",
     "@rollup/plugin-commonjs": "^19.0.0",
     "@rollup/plugin-node-resolve": "^13.0.0",
+    "@types/react": "^17.0.11",
+    "react": "^17.0.2",
     "rollup": "^2.52.2",
     "typescript": "^4.3.4"
   },
-  "gitHead": "d099cf8e482487fcd510b4c82b0732e444c53c00"
+  "gitHead": "d099cf8e482487fcd510b4c82b0732e444c53c00",
+  "dependencies": {
+    "react": "^17.0.2"
+  }
 }

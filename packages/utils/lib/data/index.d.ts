@@ -17,3 +17,14 @@ declare function isObject(obj: any): string;
  * 判断为数组类型
  */
 declare function isArray(arr: any): boolean;
+/**
+ * 判断正则表达式
+ * @param val
+ */
+declare function isRegExp(val: any): boolean;
+/**
+ * 判断Date对象
+ * @param val
+ */
+declare function isDate(val: any): boolean;
+export { isStatic, isReference, isObject, isArray, isRegExp, isDate };
