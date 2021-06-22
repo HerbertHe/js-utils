@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 /**
  * 检查localStorage item是否存在
  * @param item
@@ -191,6 +193,75 @@ function setCookie(key, val) {
     for (_iterator.s(); !(_step = _iterator.n()).done;) {
       var _key = _step.value;
       cookieArray.push("".concat(_key[0], "=").concat(_key[1]));
+    } // update cookie
+
+  } catch (err) {
+    _iterator.e(err);
+  } finally {
+    _iterator.f();
+  }
+
+  document.cookie = cookieArray.join("; ");
+}
+
+/**
+ * localStorage自定义钩子
+ * @param item
+ */
+
+function useLocalStorage(item) {
+  var val = localStorage.getItem(item); // 状态绑定, 触发react的dispatch
+
+  var _useState = useState(val),
+      _useState2 = _slicedToArray(_useState, 2),
+      i = _useState2[0],
+      setI = _useState2[1];
+
+  var setVal = function setVal(v) {
+    localStorage.setItem(item, v);
+    setI(v);
+  };
+
+  return [i, setVal];
+}
+/**
+ * cookie自定义钩子
+ * @param item
+ */
+
+
+function useCookie(item) {
+  // 设置cookie
+  var val = getCookie(item);
+
+  var _useState3 = useState(val),
+      _useState4 = _slicedToArray(_useState3, 2),
+      i = _useState4[0],
+      setI = _useState4[1];
+
+  var setVal = function setVal(v) {
+    setCookie(item, v);
+    setI(v);
+  };
+
+  return [i, setVal];
+}
+
+/**
+ * 获取所有的query
+ */
+function getLocationQueries() {
+  var search = location.search.replace("?", "").split("&");
+  var res = new Map();
+
+  var _iterator = _createForOfIteratorHelper(search),
+      _step;
+
+  try {
+    for (_iterator.s(); !(_step = _iterator.n()).done;) {
+      var item = _step.value;
+      var tmp = item.split(/=/);
+      res.set(tmp[0], tmp[1]);
     }
   } catch (err) {
     _iterator.e(err);
@@ -198,7 +269,40 @@ function setCookie(key, val) {
     _iterator.f();
   }
 
-  return cookieArray.join("; ");
+  return res;
+}
+/**
+ * 获取单个query
+ * @param item
+ */
+
+
+function getLocationQuery(item) {
+  return getLocationQueries().get(item);
+}
+/**
+ * 获取pathname
+ */
+
+
+function getLocationPathname() {
+  return location.pathname;
+}
+/**
+ * 获取协议
+ */
+
+
+function getLocationProtocol() {
+  return location.protocol;
+}
+/**
+ * 获取完整域名
+ */
+
+
+function getLocationOrigin() {
+  return location.origin;
 }
 
-export { getAllCookie, getCookie, isCookieExist, isLocalStorageItemExist, setCookie };
+export { getAllCookie, getCookie, getLocationOrigin, getLocationPathname, getLocationProtocol, getLocationQueries, getLocationQuery, isCookieExist, isLocalStorageItemExist, setCookie, useCookie, useLocalStorage };

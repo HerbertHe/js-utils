@@ -17,5 +17,5 @@ declare function getCookie(item: string): string | undefined;
  * @param key 键
  * @param val 值
  */
-declare function setCookie(key: string, val: string): string;
+declare function setCookie(key: string, val: string): void;
 export { isCookieExist, getAllCookie, getCookie, setCookie };

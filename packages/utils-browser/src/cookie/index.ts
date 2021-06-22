@@ -41,14 +41,15 @@ function getCookie(item: string) {
  * @param key 键
  * @param val 值
  */
-function setCookie(key: string, val: string): string {
+function setCookie(key: string, val: string) {
     const cookie = splitCookie()
     cookie.set(key, val)
     let cookieArray: Array<string> = new Array<string>()
     for (let key of cookie) {
         cookieArray.push(`${key[0]}=${key[1]}`)
     }
-    return cookieArray.join("; ")
+    // update cookie
+    document.cookie = cookieArray.join("; ")
 }
 
 export { isCookieExist, getAllCookie, getCookie, setCookie }

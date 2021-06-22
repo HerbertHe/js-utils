@@ -35,5 +35,12 @@
   "bugs": {
     "url": "https://github.com/HerbertHe/js-utils/issues"
   },
-  "gitHead": "d099cf8e482487fcd510b4c82b0732e444c53c00"
+  "gitHead": "d099cf8e482487fcd510b4c82b0732e444c53c00",
+  "dependencies": {
+    "react": "^17.0.2"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.11",
+    "react": "^17.0.2"
+  }
 }
