@@ -1,0 +1,37 @@
+{
+  "name": "@herberthe/utils-browser",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "Herbert <herbert.he0229@gmail.com>",
+  "homepage": "https://github.com/HerbertHe/js-utils#readme",
+  "license": "ISC",
+  "main": "lib/index.js",
+  "module": "lib/index.module.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npm.taobao.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HerbertHe/js-utils.git"
+  },
+  "scripts": {
+    "dev": "yarn build:types && yarn dev:js",
+    "build": "yarn build:types && yarn build:js",
+    "dev:js": "rollup -c -w",
+    "build:js": "rollup -c",
+    "build:types": "tsc --emitDeclarationOnly",
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "npm run type-check -- --watch",
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/HerbertHe/js-utils/issues"
+  }
+}
