@@ -24,4 +24,27 @@ function deepClone(obj: any) {
     return newObj
 }
 
-export { deepCloneSimple, deepClone }
+/**
+ * 函数柯里化
+ * @param fn
+ * @param args
+ */
+function curry(fn: any, args: any) {
+    return function () {
+        let _args = [].slice.call(arguments)
+
+        if (args !== undefined) {
+            _args = _args.concat(args)
+        }
+
+        // 递归调用
+        if (_args.length < fn.length) {
+            return curry(fn, _args)
+        }
+
+        // 递归出口
+        return fn.apply(null, _args)
+    }
+}
+
+export { deepCloneSimple, deepClone, curry }

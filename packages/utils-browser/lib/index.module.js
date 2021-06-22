@@ -305,4 +305,20 @@ function getLocationOrigin() {
   return location.origin;
 }
 
-export { getAllCookie, getCookie, getLocationOrigin, getLocationPathname, getLocationProtocol, getLocationQueries, getLocationQuery, isCookieExist, isLocalStorageItemExist, setCookie, useCookie, useLocalStorage };
+/**
+ * 元素全屏
+ * @param el HTMLElement
+ */
+function openFullScreen(el) {
+  el.requestFullscreen();
+}
+/**
+ * 退出全屏
+ */
+
+
+function exitFullScreen() {
+  document.exitFullscreen();
+}
+
+export { exitFullScreen, getAllCookie, getCookie, getLocationOrigin, getLocationPathname, getLocationProtocol, getLocationQueries, getLocationQuery, isCookieExist, isLocalStorageItemExist, openFullScreen, setCookie, useCookie, useLocalStorage };

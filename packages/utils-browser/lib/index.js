@@ -309,6 +309,23 @@ function getLocationOrigin() {
   return location.origin;
 }
 
+/**
+ * 元素全屏
+ * @param el HTMLElement
+ */
+function openFullScreen(el) {
+  el.requestFullscreen();
+}
+/**
+ * 退出全屏
+ */
+
+
+function exitFullScreen() {
+  document.exitFullscreen();
+}
+
+exports.exitFullScreen = exitFullScreen;
 exports.getAllCookie = getAllCookie;
 exports.getCookie = getCookie;
 exports.getLocationOrigin = getLocationOrigin;
@@ -318,6 +335,7 @@ exports.getLocationQueries = getLocationQueries;
 exports.getLocationQuery = getLocationQuery;
 exports.isCookieExist = isCookieExist;
 exports.isLocalStorageItemExist = isLocalStorageItemExist;
+exports.openFullScreen = openFullScreen;
 exports.setCookie = setCookie;
 exports.useCookie = useCookie;
 exports.useLocalStorage = useLocalStorage;

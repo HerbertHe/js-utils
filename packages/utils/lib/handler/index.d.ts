@@ -8,4 +8,10 @@ declare function deepCloneSimple(obj: any): any;
  * @param obj
  */
 declare function deepClone(obj: any): any;
-export { deepCloneSimple, deepClone };
+/**
+ * 函数柯里化
+ * @param fn
+ * @param args
+ */
+declare function curry(fn: any, args: any): () => any;
+export { deepCloneSimple, deepClone, curry };

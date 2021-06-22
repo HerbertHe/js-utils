@@ -14,6 +14,42 @@ function _typeof(obj) {
   return _typeof(obj);
 }
 
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
+  try {
+    var info = gen[key](arg);
+    var value = info.value;
+  } catch (error) {
+    reject(error);
+    return;
+  }
+
+  if (info.done) {
+    resolve(value);
+  } else {
+    Promise.resolve(value).then(_next, _throw);
+  }
+}
+
+function _asyncToGenerator(fn) {
+  return function () {
+    var self = this,
+        args = arguments;
+    return new Promise(function (resolve, reject) {
+      var gen = fn.apply(self, args);
+
+      function _next(value) {
+        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);
+      }
+
+      function _throw(err) {
+        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);
+      }
+
+      _next(undefined);
+    });
+  };
+}
+
 /**
  * 判断是否为非symbol值
  * @param val 值
@@ -94,5 +130,57 @@ function deepClone(obj) {
 
   return newObj;
 }
+/**
+ * 函数柯里化
+ * @param fn
+ * @param args
+ */
 
-export { deepClone, deepCloneSimple, isArray, isDate, isObject, isReference, isRegExp, isStatic };
+
+function curry(fn, args) {
+  return function () {
+    var _args = [].slice.call(arguments);
+
+    if (args !== undefined) {
+      _args = _args.concat(args);
+    } // 递归调用
+
+
+    if (_args.length < fn.length) {
+      return curry(fn, _args);
+    } // 递归出口
+
+
+    return fn.apply(null, _args);
+  };
+}
+
+/**
+ * sleep函数 promised timeout
+ * @param ms 毫秒
+ * @param cb 回调函数
+ */
+function sleep(ms, cb) {
+  return new Promise(function (resolve) {
+    setTimeout( /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+      return regeneratorRuntime.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return cb === null || cb === void 0 ? void 0 : cb();
+
+            case 2:
+              resolve();
+
+            case 3:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    })), ms);
+  });
+}
+
+export { curry, deepClone, deepCloneSimple, isArray, isDate, isObject, isReference, isRegExp, isStatic, sleep };
