@@ -1,6 +1,6 @@
 # `@herberthe/utils`
 
-> TODO: description
+> 通用JavaScript工具函数库
 
 ## Usage
 
