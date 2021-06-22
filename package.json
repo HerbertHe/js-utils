@@ -9,8 +9,5 @@
   ],
   "scripts": {
     "pub": "yrm use npm && lerna publish"
-  },
-  "publishConfig": {
-    "access": "public"
   }
 }
