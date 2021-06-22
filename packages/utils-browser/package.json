@@ -1,6 +1,6 @@
 {
   "name": "@herberthe/utils-browser",
-  "version": "0.0.2",
+  "version": "0.0.0",
   "description": "JavaScript Utils for browser",
   "author": "Herbert <herbert.he0229@gmail.com>",
   "homepage": "https://github.com/HerbertHe/js-utils#readme",
@@ -15,7 +15,7 @@
     "lib"
   ],
   "publishConfig": {
-    "registry": "https://registry.npm.taobao.org/"
+    "registry": "https://registry.npmjs.org/"
   },
   "repository": {
     "type": "git",
@@ -34,5 +34,5 @@
   "bugs": {
     "url": "https://github.com/HerbertHe/js-utils/issues"
   },
-  "gitHead": "a216427394958d0fbc568443abe2b72b919f50c7"
+  "gitHead": "758fb2b1a0aa842059124dba537271a7e62f92f2"
 }
